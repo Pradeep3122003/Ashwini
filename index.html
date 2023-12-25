@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #f8f8f8;
+            color: #333;
+            overflow: hidden;
+        }
+
+        .birthday-card {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .cake{
+           width: 300px;
+            height: 300px;
+            background-repeat: no-repeat;
+            margin: 0px auto;
+            background-image: url(cake.webp);
+            background-size: cover;
+        }
+
+        h1 {
+            color: #e44d26;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .balloon {
+            position: absolute;
+            width: 30px;
+            height: 40px;
+            background-color: #ff69b4;
+            border-radius: 50%;
+            animation: floatBalloon 4s ease-in-out infinite;
+        }
+
+        @keyframes floatBalloon {
+            0%, 100% {
+                transform: translateY(0);
+                background-color: #ff69b4;
+            }
+            50% {
+                transform: translateY(-30px);
+                background-color: #f5ff69;
+            }
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #66ccff;
+            border-radius: 50%;
+            opacity: 0;
+            animation: fallConfetti 4s ease-in-out infinite;
+        }
+
+        @keyframes fallConfetti {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 0;
+                
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 1;
+            }
+        }
+
+        .ash{
+            width: 100vw;
+            height: 100vh;
+            background-image: url(ash.jpg);
+           visibility: collapse;
+            background-size: cover;
+            z-index: 10;
+           position: absolute;
+            animation: as 10s ease-in 10s 1 forwards;
+            visibility:collapse;
+        }
+
+        @keyframes as {
+            0%{
+                 visibility: visible;
+                 opacity: 0.1;
+            }
+            20%{
+                opacity: 1;
+            }
+            90%{
+                opacity: 0.5;
+            }
+            100%{
+                     opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ash"></div>
+    <div class="birthday-card">
+        <h1>Happy Birthday!</h1>
+        <p>Wishing you a day filled with love, joy, and all your heart desires. May this year bring you success, good health, and happiness. Cheers to another amazing year of your life!</p>
+        <p>Best wishes,</p>
+        <p>Pradeep</p>
+
+        <!-- Balloons -->
+        <div class="balloon" style="top: 10%; left: 20%;"></div>
+        <div class="balloon" style="top: 15%; left: 50%;"></div>
+        <div class="balloon" style="top: 5%; left: 80%;"></div>
+
+        <!-- Confetti -->
+        <div class="confetti" style="top: 30%; left: 10%;"></div>
+        <div class="confetti" style="top: 40%; left: 40%;"></div>
+        <div class="confetti" style="top: 25%; left: 70%;"></div>
+    </div>
+     <div class="cake"></div>
+     <audio controls autoplay loop>
+        <source src="bgm.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+   
+    <script>
+        // Add more balloons and confetti dynamically if needed
+        for (let i = 0; i < 3; i++) {
+            const balloon = document.createElement('div');
+            balloon.className = 'balloon';
+            balloon.style.top = Math.random() * 50 + '%';
+            balloon.style.left = Math.random() * 90 + '%';
+            document.querySelector('.birthday-card').appendChild(balloon);
+
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.top = Math.random() * 50 + '%';
+            confetti.style.left = Math.random() * 90 + '%';
+            document.querySelector('.birthday-card').appendChild(confetti);
+        }
+    </script>
+
+</body>
+</html>
